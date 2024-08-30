@@ -1,8 +1,16 @@
-import React from "react";
-import LATEST from "../assets/latest";
+import React, { useEffect, useState } from "react";
+// import LATEST from "../assets/latest";
 import Item from "./Item";
 
 const NewArrivals = () => {
+  const [new_collection, setNew_collection] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/newcollections").then((response) =>
+      response.json().then((data) => setNew_collection(data))
+    );
+  }, []);
+
   return (
     <section className="max-padding bg-primary p-12 xl:py-20">
       {/* title */}
@@ -15,7 +23,7 @@ const NewArrivals = () => {
       </div>
       {/* container */}
       <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6 gap-y-28 mt-32">
-        {LATEST.map((item) => (
+        {new_collection.map((item) => (
           <Item
             key={item.id}
             id={item.id}

@@ -4,7 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Offer = () => {
   return (
-    <section className="max-padd-container bg-baneroffer bg-center bg-cover w-full">
+    <section className="max-padd-container bg-banneroffer bg-center bg-cover w-full">
       <div className="px-4 py-16 md:py-24 lg:py-44">
         <h2 className="h2">Spring Sale 50% Off!</h2>
         <h3 className="medium-32 capitalize font-normal">

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { TbTrash } from "react-icons/tb";
+import all_products from "../assets/all_products";
 
 const CartItems = () => {
   const { all_products, cartItems, removeFromCart, getTotalCartAmount } =

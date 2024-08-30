@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import all_products from "../../../frontend/src/assets/all_products";
 import { TbTrash } from "react-icons/tb";
 
 const ListProduct = () => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
-    await fetch("http://localhost:4000/allproduct")
+    await fetch("http://localhost:4000/allproducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);
@@ -61,12 +60,15 @@ const ListProduct = () => {
                 <td>
                   <div className="line-clamp-3">{product.name}</div>
                 </td>
-                <td>${product.old_Price}.00</td>
+                <td>${product.old_price}.00</td>
                 <td>${product.new_price}.00</td>
                 <td>{product.category}</td>
                 <td>
                   <div className="bold-22 pl-6 sm:pl-14">
-                    <TbTrash onClick={() => remove_product(product.id)} />
+                    <TbTrash
+                      className="cursor-pointer"
+                      onClick={() => remove_product(product.id)}
+                    />
                   </div>
                 </td>
               </tr>
